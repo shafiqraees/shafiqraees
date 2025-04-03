@@ -11,7 +11,7 @@ I'm a Software Engineer who is passionate about writing code, solving problems, 
 - 📚 I’m currently learning  how to write quality Tests with excellent coverage.
 - 👯 I’m looking for  ways to hack into OSS.
 - 📫 How to reach me: [Email](mailto:malikshafiq7088@gmail.com), [Twitter](https://twitter.com/MalikShafiq7088) and [Linkedin](https://www.linkedin.com/in/muhammad-shafiq-900594151/).
-- 💬 Ask me about Engineering [Laravel/PHP](laravel.com/) and [Javascript/React](https://reactjs.org/) ecosystem.
+- 💬 Ask me about Engineering [Team Lead Laravel/PHP](laravel.com/) and [Javascript/React](https://reactjs.org/) ecosystem.
 - ⚡ Fun fact: Believe, commit and your shall earn.
 
 
