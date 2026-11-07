@@ -1,43 +1,60 @@
-## **Muhammad Shafiq**  ✨ ✨
+# Muhammad Shafiq | Portfolio
 
-### Hi there 👋
+Futuristic fintech portfolio built with **Next.js 16 (App Router)**, **Tailwind CSS v4**, **Three.js / React Three Fiber** and **Framer Motion**.
+Typeface: **Inter** throughout. Three themes: **Dark**, **Gray**, **Light** (switch in the navbar, remembered in localStorage, no flash on load).
 
-<img width="35%" align="right" alt="Github" src="https://user-images.githubusercontent.com/48678280/88862734-4903af80-d201-11ea-968b-9c939d88a37c.gif" />
+## Run it
 
-I'm a Software Engineer who is passionate about writing code, solving problems, automating stuff, hence building software while observing software development best practices in Design and Architectural patterns.
+```bash
+npm install
+npm run dev        # http://localhost:3000
+npm run build && npm start   # production
+```
 
-- 😄 Pronouns: He
-- 🔭 I’m currently a working to improve my coding skills.
-- 📚 I’m currently learning  how to write quality Tests with excellent coverage.
-- 👯 I’m looking for  ways to hack into OSS.
-- 📫 How to reach me: [Email](mailto:malikshafiq7088@gmail.com), [Twitter](https://twitter.com/MalikShafiq7088) and [Linkedin](https://www.linkedin.com/in/muhammad-shafiq-900594151/).
-- 💬 Ask me about Engineering [Team Lead Laravel/PHP](laravel.com/) and [Javascript/React](https://reactjs.org/) ecosystem.
-- ⚡ Fun fact: Believe, commit and your shall earn.
+Node 20+ recommended.
 
+## Edit your content
 
-⭐️ From [Muhammad Shafiq](https://shafiqraees.github.io)
-Team lead at [Skrap UK](https://www.skrap.co.uk/home)
+Everything lives in **`lib/content.ts`**: profile, highlights, skills and proficiency levels, platform projects, client work (27 sites with links), testimonials, experience, education, certifications.
+Change the text there and the whole site updates. Things to check before publishing:
 
+- `profile.email`, `profile.linkedin`, `profile.site`: confirm they are correct.
+- Client site screenshots live in `public/work/<name>.webp`; to add a site, drop an image there and add an entry to `clientWork` in `lib/content.ts`.
+- Your photo is `public/me.webp`.
+- The downloadable CV is `public/Muhammad_Shafiq_Resume.pdf`, linked from `profile.cv`.
+- Project cards are intentionally generic descriptions. Keep them free of confidential company details.
 
+## Theme colours
 
+`app/globals.css` holds three variable sets (`[data-theme="dark" | "gray" | "light"]`). Tweak `--accent`, `--bg` etc. to rebrand.
 
+## SEO and Google Search Console
 
-<!--
+Search setup is already in place: page title and description, canonical link, Open Graph and Twitter cards (an image is generated in `app/opengraph-image.tsx`), `robots.txt`, `sitemap.xml`, a web manifest, favicon, and JSON-LD structured data (Person, ProfilePage, WebSite) from `lib/seo.ts`.
 
-- 🔭 I’m currently working on 
+1. Deploy the site, then set `NEXT_PUBLIC_SITE_URL` to your real address (for example `https://zeeshanfayyaz.com`). Without it the site falls back to `profile.site`.
+2. In Google Search Console add the property, choose the HTML tag method and copy the code from `content="..."` into `NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION`, redeploy, then click Verify.
+3. Submit `https://your-site/sitemap.xml` under Sitemaps.
+4. Edit the title and description in `lib/seo.ts`. Keep the description under 160 characters.
 
-- 🌱 I’m currently learning ...
+## WhatsApp button
 
-- 👯 I’m looking to collaborate on ...
+`components/WhatsAppButton.tsx` shows the floating chat button (bottom right). The number and starter message come from `profile.whatsapp` in `lib/content.ts`.
 
-- 🤔 I’m looking for help with ...
+## Contact form
 
-- 💬 Ask me about ...
+The form posts to [FormSubmit](https://formsubmit.co) and delivers to `profile.email`. The first submission sends an activation link to that inbox. Click it once. After that, every message arrives there, and Reply goes to the visitor.
 
-- 📫 How to reach me: ...
+## Hero animation
 
-- 😄 Pronouns: ...
+Intro curtain (`components/Intro.tsx`), letter-by-letter name reveal, magnetic buttons, floating tech chips with pointer parallax, and scroll parallax (`components/Hero.tsx`).
 
-- ⚡ Fun fact: ...
+## 3D globe
 
--->
+`components/Globe.tsx`. Particle sphere, network lines, arcs from Dubai to 14 cities, travelling pulses, ping rings at the Dubai hub, satellites with comet tails on the orbit rings, a star field with pointer parallax, a fly-in intro and scroll-reactive zoom. It pauses when off-screen, falls back gracefully without WebGL, uses fewer points on mobile and respects reduced-motion.
+
+## Deploy
+
+**GitHub Pages** (`https://mzeeshanfayyaz93.github.io`): push to `main` — the workflow in `.github/workflows/deploy-pages.yml` runs `next build` (static export to `out/`) and publishes it. In the repo **Settings → Pages**, set **Build and deployment → Source** to **GitHub Actions** (not “Deploy from branch”).
+
+Alternatively import into **Vercel** (zero config) for SSR without static export.
